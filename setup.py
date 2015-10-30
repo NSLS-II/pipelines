@@ -12,7 +12,8 @@ setuptools.setup(
     platforms='Linux',
     license="BSD",
     packages=setuptools.find_packages(),
-    package_data={'pipelines.nb': ['*.ipynb']},
+    package_data={'pipelines.nb': ['*.tmpl'],
+                  'pipelines.script': ['*.tmpl'],},
     include_package_data=True,
     entry_points={
         'console_scripts': [
