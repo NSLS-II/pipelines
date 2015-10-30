@@ -12,7 +12,7 @@ setuptools.setup(
     platforms='Linux',
     license="BSD",
     packages=setuptools.find_packages(),
-    package_data={'nb': ['*.ipynb']},
+    package_data={'pipelines.nb': ['*.ipynb']},
     include_package_data=True,
     entry_points={
         'console_scripts': [
