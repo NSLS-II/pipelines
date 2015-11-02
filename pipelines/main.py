@@ -101,7 +101,9 @@ def main():
 
 
 def execute_programmatically(uid, pipeline, output_dir, notebook=None, script=None, **args):
-    if isinstance(uid, str):
+    try:
+        int(uid)
+    except ValueError:
         # force it to look like a string in the templated notebook
         uid = "'{}'".format(uid)
     if notebook:
