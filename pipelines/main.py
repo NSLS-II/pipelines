@@ -3,6 +3,7 @@ from pipelines import nb, script
 import os
 import logging
 import pprint
+from . import __version__
 from jinja2 import Environment, FileSystemLoader
 
 
@@ -35,7 +36,8 @@ def main():
     p.add_argument(
         'uid',
         action='store',
-        help='A valid identifier for the scan. See db[] syntax',
+        help='A valid identifier for the scan. See db[] syntax in databroker '
+             'at http://bit.ly/nsls2broker',
     )
 
     p.add_argument(
@@ -121,7 +123,7 @@ def execute_programmatically(uid, pipeline, output_dir, notebook=None, script=No
     logger.info("Loading template = %s" % template_name)
 
     template = jinja_env.get_template(template_name)
-    template_info = {'uid': uid}
+    template_info = {'uid': uid, 'version': __version__}
     pipeline = template.render(**template_info)
     with open(output_path, 'w') as f:
         f.write(pipeline)
