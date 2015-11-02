@@ -13,7 +13,8 @@ setuptools.setup(
     license="BSD",
     packages=setuptools.find_packages(),
     package_data={'pipelines.nb': ['*.tmpl'],
-                  'pipelines.script': ['*.tmpl'],},
+                  'pipelines.script': ['*.tmpl']},
+    install_requires=['jinja2', 'setuptools'],
     include_package_data=True,
     entry_points={
         'console_scripts': [
